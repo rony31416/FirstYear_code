@@ -6,25 +6,14 @@ using namespace std;
 
 void openFile(ifstream &, string);
 void processFile_lineByline(ifstream &);
-void processFile_wordByword(ifstream &);
-void processFile_charBychar(ifstream &);
 int main()
 {
-    // 1.open the file
+ 
     ifstream FILE;
     openFile(FILE, "input.txt");
-
-    // 2.process the file
-
-    
-   // processFile_lineByline(FILE);
-    processFile_wordByword(FILE);
-    processFile_charBychar(FILE);
-
-    // 3.close the file
+    processFile_lineByline(FILE);
     FILE.close();
-
-    return 0;
+     return 0;
 }
 
 void openFile(ifstream &FILE, string fileName)
@@ -52,51 +41,4 @@ void processFile_lineByline(ifstream &FILE)
         }
     }
 }
-void processFile_wordByword(ifstream &FILE)
-{
-    // read line by line
-    string line, word;
-    istringstream iss;
 
-    while (!FILE.eof())
-    {
-        getline(FILE, line);
-        if (FILE.good())
-        {
-            iss.clear();
-            iss.str(line);
-            while (iss.good())
-            {
-                iss >> word; // string extraction
-                cout << word << "\n";
-            }
-        }
-    }
-}
-
-void processFile_charBychar(ifstream &FILE)
-{
-    {
-        // read line by line
-        string line, word;
-        istringstream iss;
-
-        while (!FILE.eof())
-        {
-            getline(FILE, line);
-            if (FILE.good())
-            {
-                iss.clear();
-                iss.str(line);
-                while (iss.good())
-                {
-                    iss >> word; // string extraction
-                    for (auto c : word)
-                    {
-                        cout << c << "\n";
-                    }
-                }
-            }
-        }
-    }
-}
