@@ -6,6 +6,8 @@ int length, n;
 int a[MAX];
 int table[MAX][MAX];
 
+//this is bread cutting code
+
 int BreadCut(int start, int finish)
 {
     if(table[start][finish] != -1) return table[start][finish];
